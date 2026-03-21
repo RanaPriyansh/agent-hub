@@ -1,15 +1,15 @@
-# Thielon Agent Hub
+# Agent Hub
 
-[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/thielon-apps/thielon-agent-hub)
-[![License](https://img.shields.io/github/license/thielon-apps/thielon-agent-hub)](https://github.com/thielon-apps/thielon-agent-hub/blob/main/LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/thielon-apps/thielon-agent-hub)](https://github.com/thielon-apps/thielon-agent-hub/commits/main)
+[![GitHub](https://img.shields.io/badge/GitHub-000000?logo=github)](https://github.com/RanaPriyansh/agent-hub)
+[![License](https://img.shields.io/github/license/RanaPriyansh/agent-hub)](https://github.com/RanaPriyansh/agent-hub/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/RanaPriyansh/agent-hub)](https://github.com/RanaPriyansh/agent-hub/commits/main)
 
 Registry and marketplace for AI agents and skills. Discover, rate, and install agent capabilities. Think "PyPI for agents".
 
 ## Features
 
 - **Registry**: Search and discover agents/skills
-- **Installation**: One-command install: `thielon-hub install resume-builder`
+- **Installation**: One-command install: `agent-hub install resume-builder`
 - **Versioning**: Semantic versioning, dependency management
 - **Rating**: Community ratings, reviews, trust scores
 - ** Monetization**: Paid skills marketplace (future)
@@ -19,27 +19,27 @@ Registry and marketplace for AI agents and skills. Discover, rate, and install a
 
 ```bash
 # Install hub CLI
-pip install thielon-agent-hub
+pip install agent-hub
 
 # Search for agents
-thielon-hub search resume
+agent-hub search resume
 
 # Install an agent/skill
-thielon-hub install ai-resume-builder
+agent-hub install ai-resume-builder
 
 # List installed
-thielon-hub list
+agent-hub list
 ```
 
 ## Architecture
 
 ```
-thielon-hub/
+agent-hub/
 ├── Registry API (FastAPI)
 ├── Package index (SQLite + S3)
 ├── Verification service (safety checks)
 ├── Rating system (community + algorithmic)
-└── CLI client (thielon-hub)
+└── CLI client (agent-hub)
 ```
 
 ## Why
@@ -53,3 +53,7 @@ The agent ecosystem needs a package manager. This hub provides:
 ## License
 
 MIT
+
+---
+
+Made with 🦀 by Thielon
