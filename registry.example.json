@@ -1,0 +1,22 @@
+{
+  "packages": [
+    {
+      "name": "agent-monitor",
+      "description": "Structured telemetry and event logging for agent systems",
+      "tags": ["observability", "telemetry", "agents"],
+      "install": {
+        "type": "git",
+        "source": "https://github.com/RanaPriyansh/agent-monitor.git"
+      }
+    },
+    {
+      "name": "agent-workflow",
+      "description": "Meta harness for building, maintaining, and scaling project portfolios",
+      "tags": ["workflow", "meta-harness", "portfolio"],
+      "install": {
+        "type": "git",
+        "source": "https://github.com/RanaPriyansh/agent-workflow.git"
+      }
+    }
+  ]
+}

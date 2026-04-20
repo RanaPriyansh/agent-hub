@@ -4,51 +4,78 @@
 [![License](https://img.shields.io/github/license/RanaPriyansh/agent-hub)](https://github.com/RanaPriyansh/agent-hub/blob/main/LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/RanaPriyansh/agent-hub)](https://github.com/RanaPriyansh/agent-hub/commits/main)
 
-Registry and marketplace for AI agents and skills. Discover, rate, and install agent capabilities. Think "PyPI for agents".
+Local-first registry and installer for agent tools, skills, and infrastructure packages.
 
-## Features
+## What works now
 
-- **Registry**: Search and discover agents/skills
-- **Installation**: One-command install: `agent-hub install resume-builder`
-- **Versioning**: Semantic versioning, dependency management
-- **Rating**: Community ratings, reviews, trust scores
-- ** Monetization**: Paid skills marketplace (future)
-- **Verification**: Verify agent identity and safety checks
+- Search a local JSON registry
+- Install a package by writing a deterministic install manifest
+- Use the CLI with explicit registry and install paths
+- Treat the registry as a portable catalog for agent infrastructure
 
-## Quick Start
+## Quick start
 
 ```bash
-# Install hub CLI
-pip install agent-hub
-
-# Search for agents
-agent-hub search resume
-
-# Install an agent/skill
-agent-hub install ai-resume-builder
-
-# List installed
-agent-hub list
+cd /root/git-repos/agent-hub
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+python3 agent_hub.py --registry registry.example.json search monitor
+python3 agent_hub.py --registry registry.example.json --install-root installed install agent-monitor
 ```
 
-## Architecture
+## Registry format
 
+Use a JSON file like `registry.example.json`:
+
+```json
+{
+  "packages": [
+    {
+      "name": "agent-monitor",
+      "description": "Structured telemetry and event logging for agent systems",
+      "tags": ["observability", "telemetry", "agents"],
+      "install": {
+        "type": "git",
+        "source": "https://github.com/RanaPriyansh/agent-monitor.git"
+      }
+    }
+  ]
+}
 ```
-agent-hub/
-├── Registry API (FastAPI)
-├── Package index (SQLite + S3)
-├── Verification service (safety checks)
-├── Rating system (community + algorithmic)
-└── CLI client (agent-hub)
+
+## CLI
+
+Search:
+
+```bash
+python3 agent_hub.py --registry registry.example.json search monitor
 ```
 
-## Why
+Install:
 
-The agent ecosystem needs a package manager. This hub provides:
-- Central discovery for agent capabilities
-- Trust via identity verification and ratings
-- Easy installation and updates
-- Monetization path for agent developers
+```bash
+python3 agent_hub.py --registry registry.example.json --install-root installed install agent-monitor
+```
+
+After install, the manifest is written to:
+
+```bash
+installed/<package>/install.json
+```
+
+## Why this matters
+
+The agent internet needs package discovery and installation surfaces.
+
+This MVP is local-first on purpose:
+- easy to test
+- easy to version
+- easy to extend later into a remote registry or marketplace
+
+## Validation
+
+```bash
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+```
 
 ## License
 
